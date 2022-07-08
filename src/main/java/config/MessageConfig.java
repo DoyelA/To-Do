@@ -4,6 +4,8 @@ import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ResourceBundleMessageSource;
+import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
+import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import service.MessageService;
 
 import java.util.Locale;
@@ -12,7 +14,9 @@ import java.util.Locale;
 public class MessageConfig {
     @Bean(value="serviceMessage")
     public MessageSource serviceMessage(){
-        ResourceBundleMessageSource serviceMessageSource= new ResourceBundleMessageSource();
+
+        //To use ResourceBundleMessageSource, we have to create a bean for it in @Configuration class.
+        ResourceBundleMessageSource serviceMessageSource = new ResourceBundleMessageSource();
         serviceMessageSource.setAlwaysUseMessageFormat(true);
         serviceMessageSource.setCacheMillis(3600);
         serviceMessageSource.setDefaultEncoding("UTF-8");
@@ -24,7 +28,7 @@ public class MessageConfig {
 
     @Bean(value="validationMessage")
     public MessageSource validationMessage(){
-        ResourceBundleMessageSource validationMessageSource= new ResourceBundleMessageSource();
+        ResourceBundleMessageSource validationMessageSource = new ResourceBundleMessageSource();
         validationMessageSource.setAlwaysUseMessageFormat(true);
         validationMessageSource.setCacheMillis(3600);
         validationMessageSource.setDefaultEncoding("UTF-8");
@@ -44,5 +48,17 @@ public class MessageConfig {
         errorMessageSource.setUseCodeAsDefaultMessage(true);
         errorMessageSource.setBasename("locale/errorCode");  //we do not include _en
         return errorMessageSource;
+    }
+    @Bean
+    public SessionLocaleResolver localeResolver(){                                 //keeps running through the session, supports locale change
+        SessionLocaleResolver sessionLocaleResolver=new SessionLocaleResolver();
+        sessionLocaleResolver.setDefaultLocale(Locale.ENGLISH);
+        return sessionLocaleResolver;
+    }
+    @Bean
+    public LocaleChangeInterceptor localeChangeInterceptor(){                                        //can change language during runtime
+        LocaleChangeInterceptor localeChangeInterceptor=new LocaleChangeInterceptor();
+        localeChangeInterceptor.setParamName("lang");
+        return localeChangeInterceptor;
     }
 }
