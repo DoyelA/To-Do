@@ -14,4 +14,5 @@ public interface SkillService {
     public ResponseDTO<SkillDTO> readSkill(Long id);
     public ResponseDTO<Set<SkillDTO>> readSkills();
     public ResponseDTO<Void> deleteSkill(Long id);
+
 }

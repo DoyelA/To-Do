@@ -6,6 +6,12 @@ public interface MessageService {
 //    ii) handling the validation layer
 //    iii) handling the error code
     public String generateServiceMessage(String messageCode, Object...objects);   //object array
-    public String generateValidationMessage(String messageCode, Object...objects);
-    public String generateErrorCode(String errorCode);
+
+    public static String generateValidationMessage(String messageCode, Object... objects) {
+        return null;
+    }
+
+    public static String generateErrorCode(String errorCode) {
+        return null;
+    }
 }
