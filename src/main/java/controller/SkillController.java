@@ -42,4 +42,12 @@ public class SkillController {
     public ResponseEntity<ResponseDTO<Void>> deleteSkill(@PathVariable(value="id") Long id){
         return new ResponseUtil<Void>().generateControllerResponse(skillService.deleteSkill(id));
     }
+
+    @PutMapping(value="/{id}")
+    public ResponseEntity<ResponseDTO<SkillDTO>> updateSkill(@PathVariable(value="id") Long id,@Validated(value=ValidationSequence.class) @RequestBody SkillForm skillForm, BindingResult bindingResult){
+        if(bindingResult.hasErrors()){
+            return new ResponseUtil<SkillDTO>().generateValidationResponse(bindingResult.getAllErrors().get(0).getDefaultMessage());
+        }
+        return new ResponseUtil<SkillDTO>().generateControllerResponse(skillService.updateSkill(id, skillForm));
+    }
 }

@@ -38,6 +38,18 @@ public class MessageConfig {
         return validationMessageSource;
     }
 
+    @Bean(value="exceptionMessage")
+    public MessageSource exceptionMessage(){
+        ResourceBundleMessageSource exceptionMessageSource = new ResourceBundleMessageSource();
+        exceptionMessageSource.setAlwaysUseMessageFormat(true);
+        exceptionMessageSource.setCacheMillis(3600);
+        exceptionMessageSource.setDefaultEncoding("UTF-8");
+        exceptionMessageSource.setDefaultLocale(Locale.ENGLISH);
+        exceptionMessageSource.setUseCodeAsDefaultMessage(true);
+        exceptionMessageSource.setBasename("locale/exceptionmessage");  //we do not include _en
+        return exceptionMessageSource;
+    }
+
     @Bean(value="errorCodeMessage")
     public MessageSource errorMessage(){
         ResourceBundleMessageSource errorMessageSource= new ResourceBundleMessageSource();

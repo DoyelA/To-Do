@@ -28,7 +28,7 @@
     <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
-    <connection id="3d25276d-4b60-4d02-90a1-03cd7b41a002">
+    <connection id="eafafe4c-acd5-4402-a417-fd9b44686cef">
       <console name="skills" type="STANDARD" schema="information_schema" session="Main" />
     </connection>
   </component>
@@ -36,7 +36,7 @@
     <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
-    <connection id="3d25276d-4b60-4d02-90a1-03cd7b41a002" />
+    <connection id="eafafe4c-acd5-4402-a417-fd9b44686cef" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />
@@ -67,9 +67,9 @@
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
-      <connection id="3d25276d-4b60-4d02-90a1-03cd7b41a002" active="true" signed="true">
+      <connection id="eafafe4c-acd5-4402-a417-fd9b44686cef" active="true" signed="true">
         <database>
-          <name value="todoapp" />
+          <name value="skills" />
           <description value="" />
           <database-type value="POSTGRES" />
           <config-type value="BASIC" />

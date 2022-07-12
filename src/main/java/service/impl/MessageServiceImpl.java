@@ -19,6 +19,10 @@ public class MessageServiceImpl implements MessageService {
     @Autowired
     @Qualifier("errorCodeMessage")
     private MessageSource errorMessage;
+
+    @Autowired
+    @Qualifier("exceptionmessage")
+    private MessageSource exceptionMessage;
     @Override
     public String generateServiceMessage(String messageCode, Object... objects) {
         return serviceMessage.getMessage(messageCode, objects, LocaleContextHolder.getLocale());
@@ -31,4 +35,8 @@ public class MessageServiceImpl implements MessageService {
     public String generateErrorCode(String errorCode) {
         return this.errorMessage.getMessage(errorCode, null, LocaleContextHolder.getLocale());
     }
+    public String generateExceptionMessage(String exceptionMessage, Object...objects){
+    return this.exceptionMessage.getMessage(exceptionMessage, objects, LocaleContextHolder.getLocale());
+    }
 }
+

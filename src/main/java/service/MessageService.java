@@ -14,4 +14,9 @@ public interface MessageService {
     public static String generateErrorCode(String errorCode) {
         return null;
     }
+
+    public static String generateExceptionMessage(String exceptionMessage, Object...objects){
+        return null;
+    }
+
 }

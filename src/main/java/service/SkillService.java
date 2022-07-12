@@ -10,7 +10,7 @@ import java.util.Set;
 
 public interface SkillService {
     public ResponseDTO<SkillDTO> createSkill(SkillForm skillForm);
-    public ResponseDTO<SkillDTO> updateSkill(Long id,SkillForm skillForm);
+    public ResponseDTO<SkillDTO> updateSkill(Long id, SkillForm skillForm);
     public ResponseDTO<SkillDTO> readSkill(Long id);
     public ResponseDTO<Set<SkillDTO>> readSkills();
     public ResponseDTO<Void> deleteSkill(Long id);
