@@ -1,11 +1,9 @@
 package service;
 
-import domain.User;
 import dto.ResponseDTO;
 import dto.UserDTO;
 import form.UserForm;
 
-import java.awt.geom.RectangularShape;
 import java.util.Set;
 
 public interface UserService {

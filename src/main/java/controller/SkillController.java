@@ -23,8 +23,8 @@ import java.util.Set;
 public class SkillController {
     @Autowired
     private SkillService skillService;
-    @PostMapping
-    public ResponseEntity<ResponseDTO<SkillDTO>> createSkill(@Validated(value= ValidationSequence.class) @RequestBody SkillForm skillForm, BindingResult bindingResult){
+    @PostMapping(value="/add")
+    public ResponseEntity<ResponseDTO<SkillDTO>> addSkill(@Validated(value= ValidationSequence.class) @RequestBody SkillForm skillForm, BindingResult bindingResult){
         if(bindingResult.hasErrors()){
             return new ResponseUtil<SkillDTO>().generateValidationResponse(bindingResult.getAllErrors().get(0).getDefaultMessage());
         }

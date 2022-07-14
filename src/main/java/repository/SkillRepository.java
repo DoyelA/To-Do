@@ -14,8 +14,5 @@ public interface SkillRepository extends JpaRepository<Skill, Long> {
     Set<SkillDTO> readSkills();
 @Query(value="select new dto.SkillDTO(id) from Skills")
     SkillDTO readSkill();
-
-    boolean existsByIdAndName(Long valueOf, String skillName);
-
      boolean existsByNameAndIdIsNot(String skillName, Long valueOf);
 }

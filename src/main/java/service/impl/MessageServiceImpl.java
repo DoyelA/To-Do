@@ -21,7 +21,7 @@ public class MessageServiceImpl implements MessageService {
     private MessageSource errorMessage;
 
     @Autowired
-    @Qualifier("exceptionmessage")
+    @Qualifier("exceptionMessage")
     private MessageSource exceptionMessage;
     @Override
     public String generateServiceMessage(String messageCode, Object... objects) {

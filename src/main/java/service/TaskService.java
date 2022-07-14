@@ -10,6 +10,9 @@ public interface TaskService {
     public ResponseDTO<TaskDTO> createTask(TaskForm taskForm);
     public ResponseDTO<TaskDTO> updateTask(Long id, TaskForm taskForm);
     public ResponseDTO<TaskDTO> getTask(Long id);
+
+    ResponseDTO<TaskDTO> getTask(Long id, TaskForm taskForm);
+
     public ResponseDTO<Set<TaskDTO>> getAllTasks();
     public ResponseDTO<Void> deleteTask(Long id);
 }
