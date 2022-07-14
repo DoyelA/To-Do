@@ -65,7 +65,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public ResponseDTO<Set<UserDTO>> getAllUsers() {
+    public ResponseDTO<UserDTO> getAllUsers() {
         try{
             List<User> users=userRepository.findAll();
             Set<UserDTO> userDTOS=new HashSet<>(users.size());

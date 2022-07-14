@@ -34,7 +34,7 @@ public class MessageConfig {
         validationMessageSource.setDefaultEncoding("UTF-8");
         validationMessageSource.setDefaultLocale(Locale.ENGLISH);
         validationMessageSource.setUseCodeAsDefaultMessage(true);
-        validationMessageSource.setBasename("locale/servicemessage");  //we do not include _en
+        validationMessageSource.setBasename("locale/validationmessage");  //we do not include _en
         return validationMessageSource;
     }
 
