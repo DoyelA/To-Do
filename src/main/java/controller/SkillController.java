@@ -19,11 +19,11 @@ import validation.annotations.sequence.ValidationSequence;
 import java.util.Set;
 
 @RestController
-@RequestMapping(value= ApiUrl.SKILL_URL)
+@RequestMapping(value= "/api/v1/skills")
 public class SkillController {
     @Autowired
     private SkillService skillService;
-    @PostMapping(value="/add")
+    @PostMapping
     public ResponseEntity<ResponseDTO<SkillDTO>> addSkill(@Validated(value= ValidationSequence.class) @RequestBody SkillForm skillForm, BindingResult bindingResult){
         if(bindingResult.hasErrors()){
             return new ResponseUtil<SkillDTO>().generateValidationResponse(bindingResult.getAllErrors().get(0).getDefaultMessage());

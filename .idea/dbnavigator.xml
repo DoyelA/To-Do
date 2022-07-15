@@ -28,7 +28,7 @@
     <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
-    <connection id="eafafe4c-acd5-4402-a417-fd9b44686cef">
+    <connection id="f8758f90-a3d4-4ede-86a7-05a042d1d12e">
       <console name="skills" type="STANDARD" schema="information_schema" session="Main" />
     </connection>
   </component>
@@ -36,7 +36,7 @@
     <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
-    <connection id="eafafe4c-acd5-4402-a417-fd9b44686cef" />
+    <connection id="f8758f90-a3d4-4ede-86a7-05a042d1d12e" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />
@@ -67,7 +67,7 @@
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
-      <connection id="eafafe4c-acd5-4402-a417-fd9b44686cef" active="true" signed="true">
+      <connection id="f8758f90-a3d4-4ede-86a7-05a042d1d12e" active="true" signed="true">
         <database>
           <name value="skills" />
           <description value="" />

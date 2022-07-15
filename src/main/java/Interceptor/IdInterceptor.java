@@ -3,6 +3,7 @@ package Interceptor;
 import constants.messages.ExceptionMessage;
 import constants.url.ApiUrl;
 import exception.SkillException;
+import exception.UserException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
@@ -47,7 +48,7 @@ public class IdInterceptor extends HandlerInterceptorAdapter {
                 if (userAlreadyExists) {
                     return true;
                 }
-                throw new SkillException(ExceptionMessage.USER_NOT_FOUND, HttpStatus.NOT_FOUND.value());
+                throw new UserException(ExceptionMessage.USER_NOT_FOUND, HttpStatus.NOT_FOUND.value());
             }
         }
         return true;

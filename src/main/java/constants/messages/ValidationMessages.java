@@ -33,6 +33,5 @@ public final class ValidationMessages {
     public static final String TASK_SKILLS_EMPTY="task.skills.empty";
     public static final String TASK_DESCRIPTION_LENGTH_EXCEEDED ="task.description.length.exceeded" ;
     public static final String SKILLS_NOT_VALID = "skills.not.valid";
-    public static final String SKILLS_ARE_NOT_VALID = "";
 
 }
