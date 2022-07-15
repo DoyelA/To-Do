@@ -1,11 +1,24 @@
 package domain;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import lombok.*;
-
-import javax.persistence.*;
-import java.util.List;
 import java.util.Set;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 @Setter
 @Getter
 @AllArgsConstructor
@@ -34,9 +47,5 @@ public class User {
     private Set<Skill> skillSet;          //no duplicate skills should be present
 
     public User() {
-    }
-
-    public static User builder() {
-        return null;
     }
 }

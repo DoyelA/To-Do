@@ -4,6 +4,9 @@ import constants.url.ApiUrl;
 import dto.ResponseDTO;
 import dto.UserDTO;
 import form.UserForm;
+
+import java.util.Set;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -31,8 +34,8 @@ public class UserController {
         return new ResponseUtil<UserDTO>().generateControllerResponse(userService.getUser(id));
     }
     @GetMapping
-    public ResponseEntity<ResponseDTO<UserDTO>> listAllUsers(){
-        return new ResponseUtil<UserDTO>().generateControllerResponse(userService.getAllUsers());
+    public ResponseEntity<ResponseDTO<Set<UserDTO>>> listAllUsers(){
+        return new ResponseUtil<Set<UserDTO>>().generateControllerResponse(userService.getAllUsers());
     }
 
     @PutMapping(value="/{id}")

@@ -1,5 +1,12 @@
 package service.impl;
 
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+
 import constants.messages.ExceptionMessage;
 import constants.messages.ServiceMessage;
 import domain.Skill;
@@ -9,16 +16,10 @@ import dto.SkillDTO;
 import dto.UserDTO;
 import exception.UserException;
 import form.UserForm;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import repository.SkillRepository;
 import repository.UserRepository;
 import service.UserService;
 import utils.ResponseUtil;
-
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 public class UserServiceImpl implements UserService {
     @Autowired
@@ -30,7 +31,8 @@ public class UserServiceImpl implements UserService {
     public ResponseDTO<UserDTO> createUser(UserForm userForm) {
         try {
             Set<Skill> skillSet = new HashSet<>(skillRepository.findAllById(userForm.getSkillIds()));
-            User user = User.builder().firstName(userForm.getFirstName())
+            User user = User.builder()
+                    .firstName(userForm.getFirstName())
                     .lastName(userForm.getLastName())
                     .username(userForm.getUsername())
                     .password(userForm.getPassword())
@@ -65,7 +67,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public ResponseDTO<UserDTO> getAllUsers() {
+    public ResponseDTO<Set<UserDTO>> getAllUsers() {
         try{
             List<User> users=userRepository.findAll();
             Set<UserDTO> userDTOS=new HashSet<>(users.size());
