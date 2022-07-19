@@ -16,7 +16,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     private MessageService messageService;
     @ExceptionHandler(value=SkillException.class )
     public ResponseEntity<ResponseDTO<Object>> handleSkillException(SkillException skillException){
-        ResponseDTO responseDTO=new ResponseDTO<>();
+        ResponseDTO<Object> responseDTO=new ResponseDTO<>();
         responseDTO.setData(skillException.getData());
         responseDTO.setHttpStatus(skillException.getStatus());
         responseDTO.setMessage(messageService.generateServiceMessage(skillException.getMessage(), skillException.getDynamicData()));
@@ -26,7 +26,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     }
     @ExceptionHandler(value=UserException.class )
     public ResponseEntity<ResponseDTO<Object>> handleUserException(UserException userException){
-        ResponseDTO responseDTO=new ResponseDTO<>();
+        ResponseDTO<Object> responseDTO=new ResponseDTO<>();
         responseDTO.setData(userException.getData());
         responseDTO.setHttpStatus(userException.getStatus());
         responseDTO.setMessage(messageService.generateServiceMessage(userException.getMessage(), userException.getDynamicData()));

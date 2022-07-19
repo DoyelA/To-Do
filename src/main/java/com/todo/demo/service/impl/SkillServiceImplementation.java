@@ -20,12 +20,12 @@ import java.util.Set;
 public class SkillServiceImplementation implements SkillService {
     @Autowired
     private SkillRepository skillRepository;
+    @Autowired
     private MessageService messageService;
     @Override
     public ResponseDTO<SkillDTO> createSkill(SkillForm skillForm) {    //it will return skill dto
         Skill skill=new Skill();
         skill.setName(skillForm.getName());
-        skill=skillRepository.save(skill);
         try{
             skill=skillRepository.save(skill);
             SkillDTO skillDTO= new SkillDTO(skill.getId(), skill.getName());

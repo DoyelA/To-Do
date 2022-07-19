@@ -2,10 +2,13 @@ package com.todo.demo.controller;
 
 import java.util.Set;
 
+import com.todo.demo.constants.url.ApiUrl;
 import com.todo.demo.utils.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,15 +26,16 @@ import com.todo.demo.service.SkillService;
 import com.todo.demo.validation.annotations.sequence.ValidationSequence;
 
 @RestController
-@RequestMapping(value= "/api/v1/skills")
+@RequestMapping(value= ApiUrl.SKILL_URL)
 public class SkillController {
     @Autowired
     private SkillService skillService;
-    @PostMapping
-    public ResponseEntity<ResponseDTO<SkillDTO>> addSkill(@Validated(value= ValidationSequence.class) @RequestBody SkillForm skillForm, BindingResult bindingResult){
-        if(bindingResult.hasErrors()){
-            return new ResponseUtil<SkillDTO>().generateValidationResponse(bindingResult.getAllErrors().get(0).getDefaultMessage());
-        }
+    @PostMapping(value="/add")
+    public ResponseEntity<ResponseDTO<SkillDTO>> addSkill(@Validated(value=ValidationSequence.class) @RequestBody SkillForm skillForm, BindingResult bindingResult){
+      if(bindingResult.hasErrors()){
+          final FieldError fieldError = bindingResult.getFieldErrors().get(0);
+            return new ResponseUtil<SkillDTO>().generateValidationResponse(fieldError, false, HttpStatus.BAD_REQUEST.value(), fieldError.getDefaultMessage());
+      }
         return new ResponseUtil<SkillDTO>().generateControllerResponse(skillService.createSkill(skillForm));
     }
     @GetMapping
@@ -50,7 +54,8 @@ public class SkillController {
     @PutMapping(value="/{id}")
     public ResponseEntity<ResponseDTO<SkillDTO>> updateSkill(@PathVariable(value="id") Long id,@Validated(value=ValidationSequence.class) @RequestBody SkillForm skillForm, BindingResult bindingResult){
         if(bindingResult.hasErrors()){
-            return new ResponseUtil<SkillDTO>().generateValidationResponse(bindingResult.getAllErrors().get(0).getDefaultMessage());
+            final FieldError fieldError = bindingResult.getFieldErrors().get(0);
+            return new ResponseUtil<SkillDTO>().generateValidationResponse(fieldError, false, HttpStatus.BAD_REQUEST.value(), bindingResult.getAllErrors().get(0).getDefaultMessage());
         }
         return new ResponseUtil<SkillDTO>().generateControllerResponse(skillService.updateSkill(id, skillForm));
     }

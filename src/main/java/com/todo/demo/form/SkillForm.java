@@ -13,10 +13,10 @@ import javax.validation.constraints.NotNull;
 @Data                                              //only name is required
 @JsonIgnoreProperties(ignoreUnknown = true)       //ignores values sent in other than name
 public class SkillForm {
-    @NotNull(message= ValidationMessages.SKILL_NAME_CANNOT_BE_NULL,groups= NotNullGroup.class)
-    @NotEmpty(message=ValidationMessages.SKILL_NAME_CANNOT_BE_EMPTY,groups= NotEmptyGroup.class)
-    @NotBlank(message=ValidationMessages.SKILL_NAME_CANNOT_BE_BLANK,groups= NotBlankGroup.class)
-    @Length(max = 100,message=ValidationMessages.SKILL_NAME_INVALID_LENGTH,groups= LengthGroup.class)
-    @SkillNameAlreadyExists(groups = DBConstraints.class)
+    //@NotNull(message=ValidationMessages.SKILL_NAME_CANNOT_BE_NULL,groups= NotNullGroup.class)
+//    @NotEmpty(message=ValidationMessages.SKILL_NAME_CANNOT_BE_EMPTY,groups= NotEmptyGroup.class)
+//    @NotBlank(message=ValidationMessages.SKILL_NAME_CANNOT_BE_BLANK,groups= NotBlankGroup.class)
+//    @Length(max=100,message=ValidationMessages.SKILL_NAME_INVALID_LENGTH, groups=LengthGroup.class)
+    //@SkillNameAlreadyExists(groups = DBConstraints.class)
     private String name;
 }

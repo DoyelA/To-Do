@@ -36,10 +36,11 @@ public class TaskServiceImpl implements TaskService {
             Set<Skill> taskSkills=new HashSet<>(skillRepository.findAllById(taskForm.getSkillIds()));
             Set<SkillDTO> skillDTOS=new HashSet<>(taskSkills.size());
             taskSkills.forEach(skill->{
-                skillDTOS.add(new SkillDTO(skill.getId(), skill.getName()));
-            });
+             skillDTOS.add(new SkillDTO(skill.getId(), skill.getName()));
+           });
             task.setDescription(taskForm.getDescription());
             task.setTaskSkills(taskSkills);
+            task=taskRepository.save(task);
             TaskDTO taskDTO=new TaskDTO(task.getId(), task.getDescription(),skillDTOS);
             return new ResponseUtil<TaskDTO>().generateServiceResponse(ServiceMessage.TASK_CREATED, true, taskDTO, HttpStatus.CREATED.value());
         }

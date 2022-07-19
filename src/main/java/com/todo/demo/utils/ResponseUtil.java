@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
 import com.todo.demo.dto.ResponseDTO;
+import org.springframework.validation.FieldError;
 
 @Component
 @Scope(scopeName = "PROTOTYPE")
@@ -20,14 +21,14 @@ public class ResponseUtil<T> {
         return new ResponseEntity<ResponseDTO<T>>(responseDTO, HttpStatus.valueOf(responseDTO.getHttpStatus()));
     }
 
-    public ResponseEntity<ResponseDTO<T>> generateValidationResponse(String message){
+    public ResponseEntity<ResponseDTO<T>> generateValidationResponse(FieldError fieldError, boolean b, int value, String message){
         ResponseDTO<T> responseDTO=new ResponseDTO<>();
         responseDTO.setData(null);
         responseDTO.setHttpStatus(HttpStatus.BAD_REQUEST.value());
         responseDTO.setSuccess(false);
         responseDTO.setMessage(MessageService.generateValidationMessage(message));
         responseDTO.setErrorCode(MessageService.generateErrorCode(message));
-        return new ResponseEntity<ResponseDTO<T>>(responseDTO, HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<ResponseDTO<T>>(responseDTO, HttpStatus.BAD_REQUEST);    //http status for a validation response will always be bad message
     }
 
     public ResponseDTO<T> generateServiceResponse(String message, boolean success, T data, int httpStatus){

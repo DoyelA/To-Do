@@ -1,5 +1,6 @@
 package com.todo.demo.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -7,6 +8,7 @@ import java.util.Set;
 
 @Data
 @Entity
+@AllArgsConstructor
 @Table(name="task",schema = "public")
 public class Tasks {
     @Id
@@ -27,50 +29,5 @@ public class Tasks {
     private User user;
 
     public Tasks() {
-    }
-
-    public Tasks(String description, Set<Skill> taskSkills, User user) {
-        this.description = description;
-        this.taskSkills = taskSkills;
-        this.user = user;
-    }
-
-    public Tasks(Long id, String description, Set<Skill> taskSkills, User user) {
-        this.id = id;
-        this.description = description;
-        this.taskSkills = taskSkills;
-        this.user = user;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Set<Skill> getTaskSkills() {
-        return taskSkills;
-    }
-
-    public void setTaskSkills(Set<Skill> taskSkills) {
-        this.taskSkills = taskSkills;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 }

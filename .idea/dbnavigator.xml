@@ -28,8 +28,7 @@
     <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
-    <connection id="12c39cdb-7819-40f5-8e89-d02678a1bccc">
-      <console name="ToDo" type="STANDARD" schema="information_schema" session="Main" />
+    <connection id="113aa88a-001f-41d9-8127-b2bfbe6716aa">
       <console name="todoapp" type="STANDARD" schema="information_schema" session="Main" />
     </connection>
   </component>
@@ -37,7 +36,7 @@
     <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
-    <connection id="12c39cdb-7819-40f5-8e89-d02678a1bccc" />
+    <connection id="113aa88a-001f-41d9-8127-b2bfbe6716aa" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />
@@ -68,7 +67,7 @@
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
-      <connection id="12c39cdb-7819-40f5-8e89-d02678a1bccc" active="true" signed="true">
+      <connection id="113aa88a-001f-41d9-8127-b2bfbe6716aa" active="true" signed="true">
         <database>
           <name value="todoapp" />
           <description value="" />
